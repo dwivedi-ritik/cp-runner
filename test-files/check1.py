@@ -2,7 +2,7 @@ import random
 
 arr = [ random.randint(0, 1000) for _ in range(1000)]
 
-even_counts = odd_counts = 
+even_counts = odd_counts = 0
 
 for el in arr:
     if el%2 == 0:
@@ -14,4 +14,4 @@ print(f"arr has {even_counts} even number and {odd_counts} odd numbers")
 print("I have added some changes")
 print("I have added some changes")
 print("i have addded some more changes")
-print("i have added some t")
+print("i have added ")

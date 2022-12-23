@@ -4,8 +4,8 @@ import { homedir } from 'os'
 
 const __dirname = process.cwd()
 
-export function getFileExtension(path) { //? Reading file header will be expensive
-    const pathSplit = path.split('/')
+export function getFileExtension(_path) { //? Reading file header will be expensive
+    const pathSplit = _path.split('/')
     for (let filename of pathSplit) {
         let splitContent = filename.split(".")
         if (splitContent.length === 0 || splitContent.length === 1) {
@@ -13,7 +13,8 @@ export function getFileExtension(path) { //? Reading file header will be expensi
         }
         return {
             filename,
-            type: splitContent[splitContent.length - 1]
+            type: splitContent[splitContent.length - 1],
+            filepath: path.join(__dirname, _path)
         }
     }
 
