@@ -1,12 +1,32 @@
-// 1.Getting file extensions
-// 2.Parsing default config and user config
-// 3.Mapping file executables with the file extentions
-import { InvalidFileName } from './errors.js'
+import fs from 'fs'
+import path from 'path'
+import { homedir } from 'os'
 
-export function getFileExtension(filename) { //? Reading file header will be expensive
-    let splitContent = filename.split(".")
-    if (splitContent.length === 0 || splitContent.length === 1) {
-        throw new InvalidFileName()
+const __dirname = process.cwd()
+
+export function getFileExtension(path) { //? Reading file header will be expensive
+    const pathSplit = path.split('/')
+    for (let filename of pathSplit) {
+        let splitContent = filename.split(".")
+        if (splitContent.length === 0 || splitContent.length === 1) {
+            continue
+        }
+        return {
+            filename,
+            type: splitContent[splitContent.length - 1]
+        }
     }
-    return splitContent[splitContent.length - 1]
+
+}
+
+function getConf() {
+    const USER_CONFIG = path.join(homedir(), 'config', 'cp-runner', 'userConf.json')
+    return fs.existsSync(USER_CONFIG) ? USER_CONFIG : path.join(__dirname, 'config.json')
+}
+
+export function getExecutables() {
+    const confPath = getConf()
+    const file = fs.readFileSync(confPath)
+    const configuration = JSON.parse(file)
+    return configuration.extensions
 }

@@ -1,0 +1,12 @@
+{
+    "folder": "",
+    "extensions": {
+        "py": "python",
+        "js": "node",
+        "c": "gcc",
+        "cpp": "g++",
+        "go": "go",
+        "rs": "rust"
+    },
+    "output": ""
+}
