@@ -19,4 +19,28 @@
 
 // })
 
-console.log(process.argv.splice(2))
+// console.log(process.argv.splice(2))
+
+function solvePromise() {
+    return new Promise((resolve, reject) => {
+        let sum = 0
+        for (let i = 0; i < 10e8; i++) {
+            sum += i
+        }
+        console.log("sum executed")
+        resolve(sum)
+    })
+}
+
+console.log("Lets check up and")
+// (async () => {
+//     console.log("Runing up")
+//     const ans = await solvePromise()
+//     console.log("Last proces")
+// })()
+
+// console.log("\x1b[44m 102033 \x1b[0m")
+
+
+
+

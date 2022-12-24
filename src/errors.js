@@ -1,11 +1,8 @@
-// Contains usefull error that user needed to see during the runtime of the cp-runner
-
 export class NothingToWatch extends Error {
     constructor() {
         super("No folder/path is passed for watch")
     }
 }
-
 
 export class InvalidFileName extends Error {
     constructor() {

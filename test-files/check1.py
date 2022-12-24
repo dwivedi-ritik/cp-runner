@@ -9,9 +9,11 @@ for el in arr:
         even_counts += 1
     else:
         odd_counts += 1
-print(f"arr has {even_counts} even number and {odd_counts} odd numbers")
+print(f"arr has {even_counts} even number and {odd_counts} odd number")
 
-print("I have added some changes")
-print("I have added some changes")
-print("i have addded some more changes")
-print("i have added ")
+# print("I have added some changes")
+# print("I have added some changes")
+# print("i have addded some more changes")
+# print("i have added ")
+# print("From i here will print process id")
+
