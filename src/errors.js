@@ -16,3 +16,9 @@ export class InvalidUserConfig extends Error {
         super('Unable to parse the User Config, Default config is being used')
     }
 }
+
+export class MissingUserConfig extends Error {
+    constructor() {
+        super('Could not find any config.json')
+    }
+}

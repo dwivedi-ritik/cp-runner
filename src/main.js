@@ -24,7 +24,6 @@ watcher.on('change', (path, event) => { //? Event for detecting changes in direc
     if (compilerExtn.hasOwnProperty(file.type)) {
         cmd += `${compilerExtn[file.type].postCmd}`
     }
-
-    executeScripts(cmd, file.filename, file.filepath)
+    executeScripts(cmd, file.filename, exec)
 });
 

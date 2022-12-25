@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import { homedir } from 'os'
 import child_process from "child_process"
-
+import { MissingUserConfig } from "./errors.js"
 import { Term } from './constants.js'
 
 const __dirname = process.cwd() //ES6 doesn't have __dirname
@@ -25,7 +25,11 @@ export function getFileExtension(_path) { //? Reading file header will be expens
 
 function getConf() {
     const USER_CONFIG = path.join(homedir(), 'config', 'cp-runner', 'userConf.json')
-    return fs.existsSync(USER_CONFIG) ? USER_CONFIG : path.join(__dirname, 'config.json')
+    if (fs.existsSync(USER_CONFIG)) {
+        return USER_CONFIG
+    } else {
+        throw new MissingUserConfig()
+    }
 }
 
 export function getExecutables() {
