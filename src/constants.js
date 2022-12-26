@@ -1,11 +1,32 @@
+import { exec } from 'child_process'
+import { executeScripts } from "./utils.js"
+
+
+// Object will handle the execution logic
 export const compilerExtn = {
     c: {
-        postCmd: ' -o a.out && ./a.out',
+        executeScript: (filepath, filename) => {
+            const cmd = `gcc -o main ${filepath} && ./main`
+            executeScripts(cmd, filename, 'gcc')
+        }
     },
     cpp: {
-        postCmd: ' -o a.out && ./a.out',
+        executeScript: (filepath, filename) => {
+            const cmd = `g++ -o main ${filepath} && ./main`
+            executeScripts(cmd, filename, 'g++')
+        }
+    },
+    java: {
+        executeScript: (filepath, filename) => { //Execute script for specific language
+            let [file, ext] = filename.split('.')
+            let capitalizeFilename = file.at(0).toUpperCase() + file.slice(1)
+
+            const cmd = `javac ${filepath} -d . && java ${capitalizeFilename}`
+            executeScripts(cmd, filename, 'java') // This should not be hardcoded
+        }
     }
 }
+
 
 export const Term = {
     Reset: "\x1b[0m",

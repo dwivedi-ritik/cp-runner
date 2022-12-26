@@ -70,7 +70,7 @@ export function executeScripts(cmd, filename, exec) {
 
     console.log(`${Term.Bright}----------------------------${Term.Reset}`)
 
-    child_process.exec(cmd, (error, stdout, stderr) => {
+    child_process.exec(cmd, { shell: true }, (error, stdout, stderr) => {
         if (error) {
             console.error(error.message)
 

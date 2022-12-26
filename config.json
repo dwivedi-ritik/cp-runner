@@ -6,6 +6,7 @@
         "c": "gcc",
         "cpp": "g++",
         "go": "go",
+        "java": "javac",
         "rs": "rust"
     },
     "output": ""
