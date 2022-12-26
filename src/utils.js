@@ -24,7 +24,7 @@ export function getFileExtension(_path) { //? Reading file header will be expens
 }
 
 function getConf() {
-    const USER_CONFIG = path.join(homedir(), 'config', 'cp-runner', 'userConf.json')
+    const USER_CONFIG = path.join(homedir(), '.config', 'cp-runner', 'config.json')
     if (fs.existsSync(USER_CONFIG)) {
         return USER_CONFIG
     } else {
