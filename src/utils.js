@@ -67,21 +67,22 @@ export function argumentParser(args) {
 export function executeScripts(cmd, filename, exec) {
     console.log(`${Term.Bright}Changes detected in ${filename} excuting with the ${exec}${Term.Reset}`)
     console.log(`${Term.Bright}Execution started 🥵 at Process ID ${process.pid} ${Term.Reset}`)
+
     console.log(`${Term.Bright}----------------------------${Term.Reset}`)
+
     child_process.exec(cmd, (error, stdout, stderr) => {
         if (error) {
             console.error(error.message)
-            console.log()
-            return
-        }
 
-        if (stderr) {
-            console.error(stderr)
+            console.log(`${Term.Bright}----------------------------${Term.Reset}`)
+            console.log(`${Term.Bright}Execution Ended with Error`)
             return
         }
 
         console.log(stdout)
         console.log(`${Term.Bright}----------------------------${Term.Reset}`)
         console.log(`${Term.Bright}Execution Ended 💦${Term.Reset}`)
+
     })
+
 }

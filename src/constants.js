@@ -1,9 +1,9 @@
 export const compilerExtn = {
     c: {
-        postCmd: ' -o a.out && ./a.out'
+        postCmd: ' -o a.out && ./a.out',
     },
     cpp: {
-        postCmd: ' -o a.out && ./a.out'
+        postCmd: ' -o a.out && ./a.out',
     }
 }
 

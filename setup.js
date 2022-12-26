@@ -33,7 +33,7 @@ const validateCmd = (cmd) => {
 (async function () {
     for (let [key, val] of Object.entries(execsObj)) {
         if (! await validateCmd(val)) {
-            console.log(`${val} is missing , removing from the json`)
+            console.log(`${val} is missing , removing from the configuration`)
             delete configJson.extensions[key]
         }
     }
@@ -41,12 +41,11 @@ const validateCmd = (cmd) => {
 })()
 
 fs.mkdir(configPath, (err) => {
+    if (!err) return
     if (err.code === 'EEXIST') {
         console.warn('Config already exists')
         return
     }
-    console.error(err)
 })
 
 fs.writeFileSync(path.join(configPath, 'config.json'), JSON.stringify(configJson))
-

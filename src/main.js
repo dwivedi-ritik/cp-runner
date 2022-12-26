@@ -19,11 +19,14 @@ watcher.on('change', (path, event) => { //? Event for detecting changes in direc
     const file = getFileExtension(path)
     const getExec = getExecutables()
     const exec = getExec[file.type] //get the executable
-
+    if (!exec) {
+        return
+    }
     let cmd = `${exec} ${file.filepath}`
+    let execFile = {}
     if (compilerExtn.hasOwnProperty(file.type)) {
         cmd += `${compilerExtn[file.type].postCmd}`
     }
-    executeScripts(cmd, file.filename, exec)
+    executeScripts(cmd, file.filename, exec, execFile)
 });
 
