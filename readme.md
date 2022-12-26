@@ -22,3 +22,4 @@ $ node src/main.js --watch dirs/paths --ignore dirs/paths
 ## Note
 - Only detect the changes in files ( if new file created it will ignore it)
 - There are some issues in `c`  
+- It cannot take stdinput for now
