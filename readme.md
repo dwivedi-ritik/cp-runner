@@ -5,21 +5,28 @@ it can come handy to people who do alot of competative programming or leetcodes
 $ node src/main.js --watch dirs/paths --ignore dirs/paths
 ```
 
+easy setup
+```shell
+$ node setup.js 
+```
+
+## Note
+- It cannot take standard input.
+- Only detect the changes in files ( if new file created it will ignore it)
+
 ## Features
 - Customizable configuration
+- Multiple language support
 - Easy node script setup
 
 ## Supported Lang
 - cpp
 - python
 - node
+- java
 
 ## Setup
 - run `node setup.js`
 - add alias of full path of `src/main.js` in your shell profile
 
 
-## Note
-- Only detect the changes in files ( if new file created it will ignore it)
-- There are some issues in `c`  
-- It cannot take stdinput for now
