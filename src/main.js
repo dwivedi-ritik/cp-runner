@@ -17,8 +17,11 @@ const watcher = chokidar.watch(parsedArgs['--watch'], {
 
 watcher.on('change', (path, event) => { //? Event for detecting changes in directory
     const file = getFileExtension(path)
+    if (!file) return
     const getExec = getExecutables()
     const exec = getExec[file.type] //get the executable
+    console.log(getExec, exec)
+
     if (!exec) {
         return
     }
