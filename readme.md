@@ -10,10 +10,12 @@ easy setup
 $ node setup.js 
 ```
 
-## Note
-- It cannot take standard input.
-- Only detect the changes in files ( if new file created it will ignore it)
-
+## Setup in Linux
+- run `node setup.js`
+- add alias of full path of `src/main.js` in your shell profile 
+```shell 
+$ echo 'alias cp-watch=$(pwd)' >> ~/.zshrc
+```
 ## Features
 - Customizable configuration
 - Multiple language support
@@ -25,8 +27,6 @@ $ node setup.js
 - node
 - java
 
-## Setup
-- run `node setup.js`
-- add alias of full path of `src/main.js` in your shell profile
-
-
+## Note
+- It cannot take standard input.
+- Only detect the changes in files ( if new file created it will ignore it)

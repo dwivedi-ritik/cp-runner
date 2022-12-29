@@ -20,7 +20,6 @@ watcher.on('change', (path, event) => { //? Event for detecting changes in direc
     if (!file) return
     const getExec = getExecutables()
     const exec = getExec[file.type] //get the executable
-    console.log(getExec, exec)
 
     if (!exec) {
         return
