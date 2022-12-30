@@ -26,6 +26,7 @@ $ echo 'alias cp-watch=$(pwd)' >> ~/.zshrc
 - python
 - node
 - java
+- go
 
 ## Note
 - It cannot take standard input.
