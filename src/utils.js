@@ -86,15 +86,13 @@ export function executeScripts(cmd, filename, exec, filepath) {
 
         const isInput = fs.existsSync(INPUT_FILE)
 
-        if (!isInput) {
-            return
+        if (isInput) {
+            const inputFileData = fs.readFileSync(INPUT_FILE)
+            const stdinStream = new stream.Readable()
+            stdinStream.push(inputFileData)
+            stdinStream.push(null)
+            stdinStream.pipe(subprocess.stdin)
         }
-
-        const inputFileData = fs.readFileSync(INPUT_FILE)
-        const stdinStream = new stream.Readable()
-        stdinStream.push(inputFileData)
-        stdinStream.push(null)
-        stdinStream.pipe(subprocess.stdin)
 
         let errFlag = false
         subprocess.stdout.on('data', stdout => {
