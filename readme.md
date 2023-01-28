@@ -34,6 +34,8 @@ $ echo 'alias cp-watch=$(pwd)' >> ~/.zshrc
 - go
 
 
+Feel free to contribute 🍻 
+
 
 
 
