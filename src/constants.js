@@ -7,13 +7,13 @@ export const compilerExtn = {
     c: {
         executeScript: (filepath, filename) => {
             const cmd = `gcc -o main ${filepath} && ./main`
-            executeScripts(cmd, filename, 'gcc')
+            executeScripts(cmd, filename, 'gcc', filepath)
         }
     },
     cpp: {
         executeScript: (filepath, filename) => {
             const cmd = `g++ -o main ${filepath} && ./main`
-            executeScripts(cmd, filename, 'g++')
+            executeScripts(cmd, filename, 'g++', filepath)
         }
     },
     java: {
@@ -22,7 +22,7 @@ export const compilerExtn = {
             let capitalizeFilename = file.at(0).toUpperCase() + file.slice(1)
 
             const cmd = `javac ${filepath} -d . && java ${capitalizeFilename}`
-            executeScripts(cmd, filename, 'java') // This should not be hardcoded
+            executeScripts(cmd, filename, 'java', filepath) // This should not be hardcoded
         }
     }
 }

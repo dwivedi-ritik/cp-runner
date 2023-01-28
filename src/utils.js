@@ -1,5 +1,6 @@
 import fs from 'fs'
 import path from 'path'
+import stream from 'stream'
 import { homedir } from 'os'
 import child_process from "child_process"
 import { MissingUserConfig } from "./errors.js"
@@ -64,25 +65,53 @@ export function argumentParser(args) {
 
 }
 
-export function executeScripts(cmd, filename, exec) {
+
+function generateInputFilePath(filepath) {
+    const dirPath = path.dirname(filepath)
+    return path.join(dirPath, 'input.txt')
+
+}
+
+export function executeScripts(cmd, filename, exec, filepath) {
     console.log(`${Term.Bright}Changes detected in ${filename} excuting with the ${exec}${Term.Reset}`)
-    console.log(`${Term.Bright}Execution started 🥵 at Process ID ${process.pid} ${Term.Reset}`)
+    console.log(`${Term.Bright}Execution started at Process ID ${process.pid} ${Term.Reset}`)
 
     console.log(`${Term.Bright}----------------------------${Term.Reset}`)
 
-    child_process.exec(cmd, { shell: true }, (error, stdout, stderr) => {
-        if (error) {
-            console.error(error.message)
 
-            console.log(`${Term.Bright}----------------------------${Term.Reset}`)
-            console.log(`${Term.Bright}Execution Ended with Error`)
+    const INPUT_FILE = generateInputFilePath(filepath)
+
+    try {
+        const subprocess = child_process.exec(cmd, { shell: true, timeout: 10000 })
+
+        const isInput = fs.existsSync(INPUT_FILE)
+
+        if (!isInput) {
             return
         }
 
-        console.log(stdout)
-        console.log(`${Term.Bright}----------------------------${Term.Reset}`)
-        console.log(`${Term.Bright}Execution Ended 💦${Term.Reset}`)
+        const inputFileData = fs.readFileSync(INPUT_FILE)
+        const stdinStream = new stream.Readable()
+        stdinStream.push(inputFileData)
+        stdinStream.push(null)
+        stdinStream.pipe(subprocess.stdin)
 
-    })
+        let errFlag = false
+        subprocess.stdout.on('data', stdout => {
+            console.log(stdout)
+        })
 
+        subprocess.stderr.on('data', err => {
+            errFlag = true
+            console.log(err)
+        })
+        subprocess.stdout.on('close', () => {
+            console.log(`${Term.Bright}----------------------------${Term.Reset}`)
+            errFlag ? console.log(`${Term.Bright}Execution Ended with Error`) : console.log(`${Term.Bright}Execution Ended ${Term.Reset}`)
+        })
+
+    } catch (err) {
+        console.log(err)
+
+    }
 }

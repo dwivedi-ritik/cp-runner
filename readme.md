@@ -11,6 +11,9 @@ easy setup
 ```shell
 $ node setup.js 
 ```
+## Note 
+For stdin create filename as `input.txt` and paste your inputs there.
+Result will be shown on the terminal window
 
 ## Setup in Linux
 - run `node setup.js`
@@ -29,10 +32,6 @@ $ echo 'alias cp-watch=$(pwd)' >> ~/.zshrc
 - node
 - java
 - go
-
-## Note
-- It cannot take standard input.
-- Only detect the changes in files ( if new file created it will ignore it)
 
 
 
