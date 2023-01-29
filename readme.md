@@ -6,6 +6,13 @@ $ node src/main.js --watch dirs/paths --ignore dirs/paths
 ```
 ![meme3](https://user-images.githubusercontent.com/58474947/209993420-a149ce4b-515a-40b7-a066-4fca10ea6c4c.gif)
 
+
+## Features
+- Blazing Fast
+- Customizable configuration
+- Multiple language support
+- Easy setup
+
 ## Installation
 
 ```shell
@@ -22,14 +29,10 @@ you can manually setup configuration at this path
 For stdin create filename as `input.txt` and paste your inputs there.
 Result will be shown on the terminal window
 
-## Setup in Linux
+## Setup in Linux (Optional)
 - run `node setup.js`
 - add alias of full path of `src/main.js` in your shell profile 
 
-## Features
-- Customizable configuration
-- Multiple language support
-- Easy node script setup
 
 ## Supported Lang
 - cpp
