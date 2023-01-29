@@ -1,7 +1,7 @@
 {
-  "name": "cp-runnner",
-  "version": "1.0.1",
-  "description": "auto runs and compiles the files with their executables",
+  "name": "cp-runner",
+  "version": "1.0.2",
+  "description": "Auto runs and compiles the files with their executables and also saves times for people who do CP(Competative Programming).",
   "main": "./cp-watch.js",
   "type": "module",
   "bin": {
@@ -10,9 +10,20 @@
   "scripts": {
     "dev": "nodemon src/main.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "cli",
+    "monitor",
+    "restart",
+    "autoload",
+    "reload",
+    "terminal",
+    "competative programming"
+  ],
+  "author": {
+    "name": "ritik dwivedi",
+    "url": "https://dwivedi-ritik.github.io"
+  },
+  "license": "MIT",
   "dependencies": {
     "chokidar": "^3.5.3"
   }

@@ -16,7 +16,7 @@ $ node src/main.js --watch dirs/paths --ignore dirs/paths
 ## Installation
 
 ```shell
-$ npm install -g cp-runnner 
+$ npm install -g cp-runner 
 ```
 then setup configuration
 ```shell
