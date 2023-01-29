@@ -26,6 +26,9 @@ or
 you can manually paste the `config.json` content at this path
 `$HOME/.config/cp-runner/config.json`
 
+## Usages
+once installation done just type `cp-watch --watch directory_name` in terminal.
+
 ## Note 
 For stdin create filename as `input.txt` and paste your inputs there.
 Result will be shown on the terminal window
