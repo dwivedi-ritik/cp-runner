@@ -4,8 +4,7 @@ it can come handy to people who do alot of competative programming or leetcodes
 ```shell
 $ node src/main.js --watch dirs/paths --ignore dirs/paths
 ```
-![meme3](https://user-images.githubusercontent.com/58474947/209993420-a149ce4b-515a-40b7-a066-4fca10ea6c4c.gif)
-
+https://user-images.githubusercontent.com/58474947/215333309-b6e7e0aa-fbb4-4f1d-82aa-80b23e921f32.mp4
 
 ## Features
 - Blazing Fast
@@ -32,6 +31,7 @@ once installation done just type `cp-watch --watch directory_name` in terminal.
 ## Note 
 For stdin create filename as `input.txt` and paste your inputs there.
 Result will be shown on the terminal window
+
 
 ## Setup in Linux (Optional)
 - run `node setup.js`
