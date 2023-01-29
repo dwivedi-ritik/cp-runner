@@ -22,7 +22,8 @@ then setup configuration
 ```shell
 $ node setup.js 
 ```
-you can manually setup configuration at this path
+or
+you can manually paste the `config.json` content at this path
 `$HOME/.config/cp-runner/config.json`
 
 ## Note 
