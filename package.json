@@ -1,6 +1,6 @@
 {
   "name": "cp-runnner",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "auto runs and compiles the files with their executables",
   "main": "./cp-watch.js",
   "type": "module",

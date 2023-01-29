@@ -28,7 +28,8 @@ function getConf() {
     const USER_CONFIG = path.join(homedir(), '.config', 'cp-runner', 'config.json')
     if (fs.existsSync(USER_CONFIG)) {
         return USER_CONFIG
-    } else {
+    }
+    else {
         throw new MissingUserConfig()
     }
 }

@@ -6,11 +6,18 @@ $ node src/main.js --watch dirs/paths --ignore dirs/paths
 ```
 ![meme3](https://user-images.githubusercontent.com/58474947/209993420-a149ce4b-515a-40b7-a066-4fca10ea6c4c.gif)
 
+## Installation
 
-easy setup
+```shell
+$ npm install -g cp-runnner 
+```
+then setup configuration
 ```shell
 $ node setup.js 
 ```
+you can manually setup configuration at this path
+`$HOME/.config/cp-runner/config.json`
+
 ## Note 
 For stdin create filename as `input.txt` and paste your inputs there.
 Result will be shown on the terminal window
