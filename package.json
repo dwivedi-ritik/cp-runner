@@ -1,9 +1,12 @@
 {
   "name": "cp-runnner",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "auto runs and compiles the files with their executables",
+  "main": "./cp-watch.js",
   "type": "module",
+  "bin": {
+    "cp-watch": "./cp-watch.js"
+  },
   "scripts": {
     "dev": "nodemon src/main.js"
   },
