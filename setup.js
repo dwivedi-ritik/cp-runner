@@ -6,7 +6,6 @@ import util from 'util'
 
 const exec = util.promisify(child_process.exec)
 
-
 const fileContent = fs.readFileSync('./config.json')
 const configPath = path.join(os.homedir(), '.config', 'cp-runner')
 
@@ -40,12 +39,14 @@ const validateCmd = (cmd) => {
 
 })()
 
-fs.mkdir(configPath, (err) => {
-    if (!err) return
-    if (err.code === 'EEXIST') {
-        console.warn('Config already exists')
-        return
-    }
-})
+
+// Setup initializer
+if (!fs.existsSync(path.join(os.homedir(), ".config"))) {
+    fs.mkdirSync(path.join(os.homedir(), ".config"))
+}
+
+if (!fs.existsSync(configPath)) {
+    fs.mkdirSync(configPath)
+}
 
 fs.writeFileSync(path.join(configPath, 'config.json'), JSON.stringify(configJson))
