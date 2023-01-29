@@ -1,4 +1,3 @@
-import { exec } from 'child_process'
 import { executeScripts } from "./utils.js"
 
 

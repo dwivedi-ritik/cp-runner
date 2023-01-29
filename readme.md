@@ -18,9 +18,7 @@ Result will be shown on the terminal window
 ## Setup in Linux
 - run `node setup.js`
 - add alias of full path of `src/main.js` in your shell profile 
-```shell 
-$ echo 'alias cp-watch=$(pwd)' >> ~/.zshrc
-```
+
 ## Features
 - Customizable configuration
 - Multiple language support
